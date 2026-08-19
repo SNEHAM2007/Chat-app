@@ -1,0 +1,683 @@
+/* ================================
+   CHAT PAGE
+================================ */
+
+.chatPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background: #0f172a;
+  color: #f8fafc;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================================
+   LEFT SIDEBAR
+================================ */
+
+.chatSidebar {
+  width: 250px;
+  min-width: 250px;
+  background: #111827;
+  border-right: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+}
+
+.chatLogo {
+  font-size: 26px;
+  font-weight: 800;
+  color: #3b82f6;
+  margin-bottom: 35px;
+  padding-left: 10px;
+}
+
+.sidebarProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.sidebarProfile img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.sidebarProfileInfo h4 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.sidebarProfileInfo span {
+  font-size: 12px;
+  color: #22c55e;
+}
+
+/* ================================
+   SIDEBAR BUTTONS
+================================ */
+
+.chatNavButton {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  padding: 13px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: 0.2s;
+}
+
+.chatNavButton:hover {
+  background: #1e293b;
+  color: white;
+}
+
+.chatNavButton.active {
+  background: #2563eb;
+  color: white;
+}
+
+.chatLogout {
+  margin-top: auto;
+  width: 100%;
+  border: none;
+  background: #dc2626;
+  color: white;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.chatLogout:hover {
+  background: #b91c1c;
+}
+
+/* ================================
+   MAIN CHAT
+================================ */
+
+.chatMain {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   CHAT HEADER
+================================ */
+
+.chatHeader {
+  height: 75px;
+  min-height: 75px;
+  background: #111827;
+  border-bottom: 1px solid #1e293b;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 25px;
+}
+
+.chatHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.backButton {
+  border: none;
+  background: #1e293b;
+  color: white;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.backButton:hover {
+  background: #334155;
+}
+
+.friendAvatar {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+}
+
+.friendHeaderInfo h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.friendHeaderInfo span {
+  font-size: 12px;
+  color: #22c55e;
+}
+
+.chatHeaderActions {
+  display: flex;
+  gap: 10px;
+}
+
+.headerCallButton {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #1e293b;
+  color: #cbd5e1;
+
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.headerCallButton:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.headerCallButton.danger:hover {
+  background: #dc2626;
+}
+
+/* ================================
+   CALL STATUS
+================================ */
+
+.callStatusBar {
+  padding: 8px 25px;
+  background: #172033;
+
+  color: #94a3b8;
+  font-size: 12px;
+
+  border-bottom: 1px solid #1e293b;
+}
+
+.callStatusConnected {
+  color: #22c55e;
+}
+
+.callStatusCalling {
+  color: #facc15;
+}
+
+/* ================================
+   VIDEO CALL AREA
+================================ */
+
+.videoArea {
+  position: relative;
+  background: #020617;
+
+  height: 350px;
+  min-height: 350px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom: 1px solid #1e293b;
+}
+
+.remoteVideoBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #020617;
+}
+
+.remoteVideo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  background: #020617;
+}
+
+.remotePlaceholder {
+  position: absolute;
+  text-align: center;
+  color: #64748b;
+}
+
+.remotePlaceholderIcon {
+  width: 70px;
+  height: 70px;
+
+  margin: auto;
+  margin-bottom: 10px;
+
+  border-radius: 50%;
+  background: #1e293b;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+}
+
+/* ================================
+   LOCAL VIDEO
+================================ */
+
+.localVideoBox {
+  position: absolute;
+
+  right: 20px;
+  bottom: 20px;
+
+  width: 180px;
+  height: 115px;
+
+  background: #111827;
+
+  border: 2px solid #334155;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.localVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================================
+   CALL CONTROLS
+================================ */
+
+.callControls {
+  position: absolute;
+
+  bottom: 20px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 12px;
+}
+
+.callControlButton {
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #334155;
+  color: white;
+
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.callControlButton:hover {
+  background: #475569;
+}
+
+.callControlButton.end {
+  background: #dc2626;
+}
+
+.callControlButton.end:hover {
+  background: #b91c1c;
+}
+
+/* ================================
+   INCOMING CALL
+================================ */
+
+.incomingCall {
+  position: absolute;
+
+  top: 90px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  width: 330px;
+
+  background: #1e293b;
+
+  border: 1px solid #334155;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  text-align: center;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.incomingCall h3 {
+  margin-top: 0;
+}
+
+.incomingCallActions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.acceptButton {
+  border: none;
+  background: #16a34a;
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.rejectButton {
+  border: none;
+  background: #dc2626;
+  color: white;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+/* ================================
+   MESSAGES
+================================ */
+
+.messagesArea {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  background: #0f172a;
+}
+
+.messageRow {
+  display: flex;
+  width: 100%;
+}
+
+.messageRow.sent {
+  justify-content: flex-end;
+}
+
+.messageRow.received {
+  justify-content: flex-start;
+}
+
+.messageBubble {
+  max-width: 65%;
+
+  padding: 11px 15px;
+
+  border-radius: 14px;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  word-break: break-word;
+}
+
+.messageRow.sent .messageBubble {
+  background: #2563eb;
+  color: white;
+
+  border-bottom-right-radius: 4px;
+}
+
+.messageRow.received .messageBubble {
+  background: #1e293b;
+  color: #e2e8f0;
+
+  border-bottom-left-radius: 4px;
+}
+
+.messageTime {
+  font-size: 10px;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+/* ================================
+   TYPING
+================================ */
+
+.typingIndicator {
+  padding: 0 25px 8px;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+/* ================================
+   MESSAGE INPUT
+================================ */
+
+.messageArea {
+  padding: 15px 20px;
+
+  background: #111827;
+
+  border-top: 1px solid #1e293b;
+}
+
+.messageForm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #1e293b;
+
+  padding: 6px 8px;
+
+  border-radius: 12px;
+}
+
+.messageInput {
+  flex: 1;
+
+  background: transparent;
+
+  border: none;
+  outline: none;
+
+  color: white;
+
+  padding: 11px;
+
+  font-size: 14px;
+}
+
+.messageInput::placeholder {
+  color: #64748b;
+}
+
+.sendButton {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #2563eb;
+  color: white;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+}
+
+.sendButton:hover {
+  background: #1d4ed8;
+}
+
+/* ================================
+   AUDIO
+================================ */
+
+.hiddenAudio {
+  display: none;
+}
+
+/* ================================
+   SCROLLBAR
+================================ */
+
+.messagesArea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messagesArea::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.messagesArea::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 10px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .chatSidebar {
+    width: 75px;
+    min-width: 75px;
+    padding: 20px 10px;
+  }
+
+  .chatLogo {
+    font-size: 0;
+    text-align: center;
+  }
+
+  .chatLogo::after {
+    content: "CS";
+    font-size: 20px;
+  }
+
+  .sidebarProfileInfo,
+  .chatNavButton span,
+  .chatLogout span {
+    display: none;
+  }
+
+  .sidebarProfile {
+    justify-content: center;
+  }
+
+  .chatNavButton,
+  .chatLogout {
+    justify-content: center;
+  }
+
+  .localVideoBox {
+    width: 140px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chatSidebar {
+    display: none;
+  }
+
+  .chatHeader {
+    padding: 0 12px;
+  }
+
+  .messagesArea {
+    padding: 15px;
+  }
+
+  .messageBubble {
+    max-width: 80%;
+  }
+
+  .videoArea {
+    height: 280px;
+    min-height: 280px;
+  }
+
+  .localVideoBox {
+    width: 120px;
+    height: 80px;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+.fileButton {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  color: #cbd5e1;
+
+  font-size: 20px;
+
+  border-radius: 10px;
+
+  transition: 0.2s;
+}
+
+.fileButton:hover {
+  color: #ffffff;
+  background: #334155;
+}
