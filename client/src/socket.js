@@ -1,10 +1,11 @@
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000", {
-  transports: ["websocket"],
-  autoConnect: true,
-});
-
+const socket = io(
+  "https://chat-app-1-rzbm.onrender.com",
+  {
+    transports: ["websocket", "polling"],
+  }
+);
 socket.on("connect", () => {
   console.log(
     "SOCKET CONNECTED:",
